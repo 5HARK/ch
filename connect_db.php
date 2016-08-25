@@ -1,5 +1,5 @@
 <?php
-$db = new mysqli('localhost', 'club_board', 'clubgame', 'club');
+$db = new mysqli('localhost', 'root', 'apmsetup', 'club');
 
 if($db->connect_error){
     die('db connect error');
