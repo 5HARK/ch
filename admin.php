@@ -32,32 +32,24 @@ include_once "connect_db.php";
     <div id="site_content">
       <div id="content">
 	  <?php
+	  if(isset($_SESSION['id'])) {
 	  if($_SESSION['id'] === "admin") { ?>
 		<div class="form_settings">
 			<h2>Board Management</h2>
-			<?php
-			if(isset($_POST['pst_del'])) {
-				if(!empty($_POST['pst'])) {
-					// $count = count($_POST['']);				
-					foreach($_POST['pst'] as $selected) {
-						$query  = "DELETE FROM board WHERE no='" . $selected . "'";
-						$db->query($query);
-					}
-				}
-			}
-			?>
 			<table style="width:100%; border-spacing:0;">
 			  <tr><th>ch</th><th style="width:60%">Title</th><th>Writer</th></tr>
 				<?php
-				$query  = "SELECT * FROM board";
-				$result = $db->query($query);
-				while($row = $result->fetch_assoc()){ ?>
-					<tr>
-					<td><?php echo '<input style="width: 5%" type="checkbox" name="pst[]" value="' . $row['no'] . '">' ?></td>
-					<td><?php echo $row['title'] ?></td>
-					<td><?php echo $row['id'] ?></td>
-					</tr>
-			<?php } ?>
+				if(isset($_POST['pst_del'])) {
+					if(!empty($_POST['pst'])) {
+						// $count = count($_POST['']);				
+						foreach($_POST['pst'] as $selected) {
+							$query  = "DELETE FROM board WHERE no='" . $selected . "'";
+							$db->query($query);
+						}
+					}
+				}
+				?>
+			  <!--<tr><td>Item 1</td><td>Description of Item 1</td></tr>-->
 			</table>
 			<p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="pst_del" value="delete" /></p>
 		</div>
@@ -100,6 +92,8 @@ include_once "connect_db.php";
 	  <?php
 	  }
 	  else echo '<br/><p>You are not admin.</p>';
+	  }
+	  else echo '<br/><p>Please log in first.</p>';
 	  ?>
     </div>
     <div id="footer">
