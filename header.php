@@ -7,6 +7,8 @@
 	<meta name="keywords" content="website keywords, website keywords" />
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+	<link rel="stylesheet" href="css/editor.css" type="text/css" charset="utf-8"/>
+	<script src="js/editor_loader.js" type="text/javascript" charset="utf-8"></script>
     </head>
 
     <body>
