@@ -16,7 +16,7 @@ session_start();
 			    <tr>
 				<td><?php echo $row['no'] ?></td>
 				<td>
-				    <a href="view_post.php?id=<?php  echo $row['no']?>"><?php echo $row['title'] ?></a>
+				    <a href="view_post.php?no=<?php  echo $row['no']?>"><?php echo $row['title'] ?></a>
 				</td>
 				<td><?php echo $row['id'] ?></td>
 			    </tr>
@@ -26,7 +26,7 @@ session_start();
 		    if(isset($_SESSION['id'])) {
 		    ?>
 			<div class="form_settings">
-			    <input style="margin-left: 0px" class="button" type="button" value="write post" onclick="location.href='write_post.php'" />
+			    <input style="margin-left: 0px" class="button" type="button" value="글쓰기" onclick="location.href='write_post.php'" />
 			</div>
 		    <?php } ?>
 		</div>  
